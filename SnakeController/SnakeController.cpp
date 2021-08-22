@@ -1,5 +1,5 @@
 #include "SnakeController.hpp"
-
+//brak modyfikacji sprawdzenie czy dziala git push
 #include <algorithm>
 #include <sstream>
 
@@ -106,9 +106,9 @@ void Controller::receive(std::unique_ptr<Event> e)
                     }
                 }
             }
-        }
 
-        if (not lost) {
+
+          if (not lost) {
             m_segments.push_front(newHead);
             DisplayInd placeNewHead;
             placeNewHead.x = newHead.x;
@@ -123,6 +123,7 @@ void Controller::receive(std::unique_ptr<Event> e)
                     m_segments.end(),
                     [](auto const& segment){ return not (segment.ttl > 0); }),
                 m_segments.end());
+         }
         }
     } catch (std::bad_cast&) {
         try {
